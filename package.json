@@ -1,0 +1,32 @@
+{
+  "name": "mongodbimageuploader",
+  "version": "1.0.0",
+  "description": "simple app to upload images to mongoDb",
+  "main": "app.js",
+  "dependencies": {
+    "concurrently": "^7.6.0",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.5",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^2.0.20"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "client": "node views\\imagesPage.ejs",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RomanRenders/image-uploader.git"
+  },
+  "author": "Roman Navarro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RomanRenders/image-uploader/issues"
+  },
+  "homepage": "https://github.com/RomanRenders/image-uploader#readme"
+}
