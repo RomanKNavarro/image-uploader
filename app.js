@@ -52,3 +52,33 @@ app.get('/', (req, res) => {
         }
     });
 });
+
+// Step 8 - the POST handler for processing the uploaded file. EASY
+app.post('/', upload.single('image'), (req, res, next) => {
+    var obj = {
+        name: req.body.name,
+        desc: req.body.desc,
+        img: {
+            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),    
+            contentType: 'image/png'
+        }
+        // stuff for the image (the path and file type...EASY)
+    }
+    imgModel.create(obj, (err, item) => {       // CREATE AN IMAGE
+        if (err) {
+            console.log(err);
+        }
+        else {
+            // item.save();
+            res.redirect('/');      // AFTER NEW IMAGE IS UPLOADED, REDIRECT USER TO '/'. PRETTY NEAT.
+        }
+    });
+});
+
+// Step 9 - configure the server's port. EASY
+var port = process.env.PORT || '3000'
+app.listen(port, err => {
+    if (err)
+        throw err
+    console.log('Server Success! listening on port', port)
+})

@@ -1,5 +1,4 @@
 // Step 3 - this is the code for ./models.js. Similar to the schemas in romans-asylum
-  
 var mongoose = require('mongoose');
   
 var imageSchema = new mongoose.Schema({
